@@ -12,8 +12,7 @@
       };
 
       config.doBeforeFirstCheck = [];
-      config.onNotAllowed = function () {
-      };
+      config.onNotAllowed = angular.noop;
 
       config.invokeParameters = [];
       config.getRoute = function () {

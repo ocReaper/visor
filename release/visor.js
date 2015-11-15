@@ -323,8 +323,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
       };
 
       config.doBeforeFirstCheck = [];
-      config.onNotAllowed = function () {
-      };
+      config.onNotAllowed = angular.noop;
 
       config.invokeParameters = [];
       config.getRoute = function () {
