@@ -135,7 +135,16 @@ module.exports = function (grunt) {
                     pkg: 'package.json'
                 }
             }
+        },
+      ngAnnotate: {
+        options: {
+          singleQuotes: false
+        },
+        build: {
+          src: '<%= builddir %>/<%= module_name %>.js',
+          dest: '<%= builddir %>/<%= module_name %>.js'
         }
+      }
     });
 
     grunt.registerTask('npm-publish', 'publish to npm.', function () {
@@ -155,7 +164,7 @@ module.exports = function (grunt) {
         })
 
     });
-    grunt.registerTask('build', 'Perform a normal build', ['concat', 'uglify']);
+    grunt.registerTask('build', 'Perform a normal build', ['concat', 'ngAnnotate', 'uglify']);
     grunt.registerTask('dist', 'Perform a clean build', ['clean', 'build', 'copy:release']);
     grunt.registerTask('site', 'Build and create site', ['dist', 'copy:site', 'ngdocs:all']);
     grunt.registerTask('build-gh-pages', 'Build, create site and push to gh-pages', ['gh-pages', 'clean:gh-pages']);
